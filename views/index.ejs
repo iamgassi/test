@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="style.css">
+
+<%- include("partials/nav",{ user:user }) %>
+<style>
+.card {
+        
+        margin: 0 auto; 
+        float: none;
+        margin-bottom: 10px;
+         margin-top: 10px;
+}
+
+</style>
+<body>
+<h1 class="text-center">Welcome </h1>
+
+
+
+<div class="text-center col-md-12 h-100 p-5 text-white bg-dark rounded-3" >
+<form method="get" action="/addbook">
+<button id="book" class="btn btn-primary btn-lg" type="submit">Add Book</button>
+</form>
+<% products.forEach(function(product){ %>
+
+<div class="card col-md-6" style="backgound:honeydew"  >
+
+  <div class="card-body" id="<%= product.id%>">
+   
+    <h5 class="card-title text-info"><%= product.book_name %></h5>
+    <p class="card-text text-danger">RS. <%= product.book_price %></p>
+  
+  </div>
+</div>
+
+
+<% }) %> 
+
+  
+
+
+
+
+<form method="get" action="/load-more">
+<button class="btn btn-primary btn-lg">Load More</button>
+</form>
+
+ <script src="script/welcome.js"></script>
+</div>
+
+
+
+
+</body>

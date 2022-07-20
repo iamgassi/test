@@ -1,0 +1,70 @@
+
+<%- include("partials/nav",{ user:user }) %>
+<head>
+  
+</head>
+<body >
+
+
+<main class="form-signin">
+    <h1 class="h3 mb-3 ">Welcome Admin</h1>
+
+    <form action="/addbook" method="post" >
+   
+        <div class="form-floating">
+          <label>Book Name</label>
+             <input name="book_name"  placeholder="book Name" />
+         </div>
+   
+         <div class="form-floating">
+            <label>Author Name</label>
+               <input name="author_name"  placeholder="Author Name" />
+           </div>
+
+           <div class="form-floating">
+            <label>Created by</label>
+               <input name="created_by"  placeholder="Created by" />
+           </div>
+
+    <div class="form-floating">
+       
+     <label>Book Price</label>
+    <input name="book_price"  placeholder="book Price" type="number" />
+         </div>
+
+   
+
+ 
+     </main>
+    <button class="btn btn-lg btn-info mb-4" type="submit" >Add book</button>
+    </form>
+     
+<div class="text-center col-md-12 h-100 p-5 text-white bg-dark rounded-3" >
+
+<% products.forEach(function(product){ %>
+
+<div class="text-center card" style="width: 28rem;">
+
+  <div class="card-body" id="<%= product.book_name %>">
+   
+    <h5 class="card-title text-info"><%= product.book_name %></h5>
+    <p class="card-text text-danger"><%= product.book_price  %></p>
+  
+    <button id="<%= product.book_name%>" class="delete btn btn-danger">Delete book</button>
+    <button  id="<%= product.book_name%>" class="edit btn btn-secondary" >Edit book</button>
+ 
+  </div>
+</div>
+
+
+<% }) %> 
+
+  
+
+
+
+
+
+</div>
+<script src="script/addbook.js"></script>
+</body>
